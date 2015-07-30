@@ -32,7 +32,7 @@ Nosso servidor incializa, mas a instância do Express passada para nosso servido
 Altere o arquivo 01/config/express.js e adicione o middleware `express-static` para tornar acessível a pasta `public` e todos os nossos arquivos para o navegador:
 
 ```
-// arquivo 01/config/express.js
+// qcon/01/config/express.js
 
 var express = require('express');
 var app = express();
