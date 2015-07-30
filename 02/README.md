@@ -30,6 +30,8 @@ load('api', {cwd: 'app'}).into(app);
 
 module.exports = app;
 
+``
+
 **PASSO 2**
 
 Agora que você configurou o expres-load, já pode subir o servidor com `npm start` e acessar a URL `http://localhost:3000/participantes` que 
@@ -37,10 +39,12 @@ deve retornar um JSON com uma lista de participantes.
 
 **PASSO 3**
 
-Agora, vamos criar uma nova API dentro de `app/api`. Crie o arquivo `app/api/eventos.js`.
+Estamos acessando um endpoint que foi registrado no Express, mas isso não vale, ele já estava criado! Vamos criar um novo endpoint!
+
+Crie o arquivo `eventos.js` dentro da pasta `app/api`. Como estamos usando o `expres-load` ele carregará o arquivo quando o servidor for reiniciado, mas é claro, precisamos configurar o novo arquivo primeiro.
 
 **PASSO 4**
-No início do arquivo, crie uma lista de eventos. Usaremos dados estáticos por enquanto, mais tarde aprendemos a obter esses dados do MongoDB:
+No início do arquivo `eventos.js`, crie uma lista de eventos. Usaremos dados estáticos por enquanto, mais tarde aprendemos a obter esses dados do MongoDB:
 
 ```
 // arquivo 02/app/api/eventos.js
@@ -50,7 +54,8 @@ var eventos = [
     {"nome" : "Workshop Angular"},
 ];
 ```
-Agora que já temos nossa sista, precisamos criar um módulo do Node.js 
+
+Agora que já temos nossa lista, precisamos criar um módulo do Node.js 
 que configurará o endpoint `/eventos`. Ele deve retornar uma lista de eventos. 
 
 Fazemos isso através de `app.route` da instância do Express recebida 
