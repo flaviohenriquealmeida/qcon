@@ -5,7 +5,7 @@ var app = express()
 // configurações de middlewares
 app.use(express.static('public'));
 
-// aqui entra configuração do express-load
+load('api', {cwd: 'app'}).into(app);
 
 module.exports = app;
 

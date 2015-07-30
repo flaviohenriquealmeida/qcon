@@ -27,7 +27,7 @@ npm init
 
 **PASSO 2**
 
-Nosso servidor incializa, mas a instância do Express passada para nosso servidor ainda não foi devidamente configurada. Por exemplo, ainda não somos capazes de acessar o arquivo `index.html` dentro da pasta `public`. 
+Nosso servidor incializa, mas a instância do Express passada para nosso servidor ainda não foi devidamente configurada. Por exemplo, ainda não somos capazes de acessar o arquivo `index.html` dentro da pasta `public`. Precisamos configurar nosso primeiro middleware!
 
 Altere o arquivo 01/config/express.js e adicione o middleware `express-static` para tornar acessível a pasta `public` e todos os nossos arquivos para o navegador:
 
@@ -43,7 +43,7 @@ app.use(express.static('public'));
 module.exports = app;
 ```
 
-Será necessário para o servidor (CONTROL + C, COMMAND + C) e reiniciá-lo novamente para que as alterações surtam efeito.
+Será necessário parar o servidor (CONTROL + C, COMMAND + C) e reiniciá-lo novamente para que as alterações surtam efeito.
 
 **PASSO 3**
 
