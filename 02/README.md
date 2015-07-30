@@ -30,7 +30,7 @@ load('api', {cwd: 'app'}).into(app);
 
 module.exports = app;
 
-```
+``
 
 **PASSO 2**
 
@@ -44,6 +44,7 @@ Estamos acessando um endpoint que foi registrado no Express, mas isso não vale,
 Crie o arquivo `eventos.js` dentro da pasta `app/api`. Como estamos usando o `expres-load` ele carregará o arquivo quando o servidor for reiniciado, mas é claro, precisamos configurar o novo arquivo primeiro.
 
 **PASSO 4**
+
 No início do arquivo `eventos.js`, crie uma lista de eventos. Usaremos dados estáticos por enquanto, mais tarde aprendemos a obter esses dados do MongoDB:
 
 ```
