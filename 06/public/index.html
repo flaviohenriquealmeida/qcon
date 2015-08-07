@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="minhaApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Workshop MEAN - Qcon Rio</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<script src="js/lib/angular.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/controllers/palestrantes-controller.js"></script>
+		<script src="js/lib/angular-resource.js"></script>
+	</head>
+	<body ng-controller="PalestrantesController">
+		<div class="jumbotron text-center">
+			<h1>Workshop MEAN</h1>
+		</div>
+		<div class="container">
+			<table class="table table-bordered">
+				<tr ng-repeat="palestrante in palestrantes">
+					<td>{{palestrante.nome}}</td>
+					<td>{{palestrante.palestra}}</td>
+				</tr>
+			<table>
+		</div>
+	</body>
+</html>

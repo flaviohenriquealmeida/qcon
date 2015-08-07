@@ -1,6 +1,6 @@
 var eventos = [
 	{"nome" : "Workshop MEAN"},
-	{"nome" : "Workshop Angular"},
+	{"nome" : "Workshop Angular"}
 ];
 
 module.exports = function(app) {

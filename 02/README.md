@@ -1,6 +1,3 @@
-
-#Worshop MEAN - QCon Rio
-
 **IMPORTANTE**: em seu terminal de preferência, dentro da pasta 01, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
 ## Exercício - 2
@@ -35,7 +32,7 @@ module.exports = app;
 **PASSO 2**
 
 Agora que você configurou o expres-load, já pode subir o servidor com `npm start` e acessar a URL `http://localhost:3000/participantes` que 
-deve retornar um JSON com uma lista de participantes.
+retornará um JSON com uma lista de participantes.
 
 **PASSO 3**
 

@@ -1,9 +1,8 @@
 var palestrantes = [
-	{"nome": "Flávio Almeida"},
-	{"nome" : "Zeca Baleiro"},
-	{"nome" : "Tião Galinha"},
+	{"nome": "Flávio Almeida", "palestra" : "MEAN"},
+	{"nome" : "Zeca Baleiro",  "palestra" : "Angular"},
+	{"nome" : "Tião Galinha",  "palestra" : "Mongo"}
 ];
-
 module.exports = function(app) {
 	
 	app.route('/palestrantes')
