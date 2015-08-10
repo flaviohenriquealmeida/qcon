@@ -41,7 +41,7 @@ angular
 
 Recaregue sua página no navegador. A lista deve ser exibida com os dados que vieram do servidor.
 
-## PASSO 2
+## PASSO 3
 Vamos substituir o uso de `$http` por `$resource`, este último um serviço especializado do Angular para consumir endpoints que seguem o padrão REST.
 
 **Primeiro**, importe o script do módulo `ngResource` em `index.html`, 
@@ -51,7 +51,7 @@ logo após o último script que importamos:
 <script src="js/lib/angular-resource.js"></script>
 ```
 
-## PASSO 3
+## PASSO 4
 Carregar o módulo não é suficiente. Precisamos adicionar o módulo `ngResource` como dependência do nosso módulo `minhaApp`
 
 **Altere** `public/js/main.js`:
@@ -60,7 +60,7 @@ Carregar o módulo não é suficiente. Precisamos adicionar o módulo `ngResourc
 angular.module('minhaApp', ['ngResource']);
 ```
 
-## PASSO 4
+## PASSO 5
 
 Agora, substitua a injeção de `$http` por `$resource` e utilize a função `query` para obter todos os palestrantes:
 
@@ -86,7 +86,5 @@ angular
     });
 ```
 
-
-
-## PASSO 5 
+## PASSO 6
 Agora teste o resultado, a lista deve continuar a ser exibida, só que dessa vez, utilizando o serviço `$resource`.
