@@ -31,4 +31,6 @@ Altere `public/index.html` adicionando a diretiva `ng-app` com o valor `minhaApp
 ```
 
 ## Passo 4
-Acesse o endereço `localhost:3000` em seu navegador. Continuamos com a mesma página, pois ainda não fizemos nada excepcional em Angular, porém não deixe de verificar no console do navegador se existe alguma mensagem de erro (script não importado, erros de sintaxe) antes de continuar. Se nenhuma mensagem for exibida, parabéns, você crirou e carregou seu primeiro módulo do Angular que nada faz! :). No próximo exercícios aprendemos como consumir nossa lista de participantes e construir uma lista dinâmica através do Angular.
+Acesse o endereço `localhost:3000` em seu navegador. Continuamos com a mesma página, pois ainda não fizemos nada excepcional em Angular, porém não deixe de verificar no console do navegador se existe alguma mensagem de erro (script não importado, erros de sintaxe) antes de continuar. 
+
+Se nenhuma mensagem for exibida, parabéns, você criou e carregou seu primeiro módulo do Angular que nada faz! :). No próximo exercícios aprendemos como consumir nossa lista de participantes e construir uma lista dinâmica através do Angular.

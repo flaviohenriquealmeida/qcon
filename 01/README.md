@@ -20,14 +20,14 @@ public
 Inicie seu servidor, para isso, dentro da pasta 01, utilize o comando:
 
 ```
-npm init
+npm start
 ```
 
 **PASSO 2**
 
 Nosso servidor incializa, mas a instância do Express passada para nosso servidor ainda não foi devidamente configurada. Por exemplo, ainda não somos capazes de acessar o arquivo `index.html` dentro da pasta `public`. Precisamos configurar nosso primeiro middleware!
 
-Altere o arquivo 01/config/express.js e adicione o middleware `express-static` para tornar acessível a pasta `public` e todos os nossos arquivos para o navegador:
+Altere o arquivo **01/config/express.js** e adicione o middleware `express-static` para tornar acessível a pasta `public` com todos os seus arquivos para o navegador:
 
 ```
 // qcon/01/config/express.js
