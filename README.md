@@ -1,1 +1,1 @@
-#Worshop MEAN - QCon Rio
+#MEAN
