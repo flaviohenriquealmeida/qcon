@@ -5,7 +5,7 @@ Nossa tarefa será construir uma lista de palestrantes dinamicamente através do
 
 
 ## PASSO 1 
-Vamos indicar que nossa view `index.html` precisa de uma lista de `participantes` através de uma **Angular Expression**. Esse tipo de expressão caracterizada por `{{ expressão }}`. No final das contas, estamos abrindo uma lacuna em nossa view que precisa ser preenchida:
+Vamos indicar que nossa view `index.html` precisa de uma lista de `participantes` através de uma **Angular Expression** caracterizada por `{{ expressao }}`. No final das contas, estamos abrindo uma lacuna em nossa view que precisa ser preenchida:
 
 
 ```
@@ -21,9 +21,9 @@ Vamos indicar que nossa view `index.html` precisa de uma lista de `participantes
     </div>
 </body>
 ```
+Abrimos a lacuna em nossa view, mas dentro do modelo MVC é papel de do **controller** disponbilizar o dado (model) de que a view necessita.
 
 ## PASSO 2 
-Abrir a lacuna em nossa view, mas dentro do modelo MVC é papel de do **controller** disponbilizar o dado (model) de que a view necessita.
 
 Crie o arquivo **public/js/controllers/palestrantes-controller.js**. Importe-o logo em seguida em nossa view `index.html`, logo abaixo do `main.js`:
 
@@ -35,9 +35,10 @@ Crie o arquivo **public/js/controllers/palestrantes-controller.js**. Importe-o l
 <script src="js/controllers/palestrantes-controller.js"></script>
 ```
 
-## PASSO 3
+Apesar de termos criado nosso controller em um arquivo em separado, ele precisa pertencer ao módulo `minhaApp`.
 
-Apesar de termos criado nosso controller em um arquivo em separado, ele precisa pertencer ao módulo `minhaApp`. Vamos criar o controller `PalestrantesController`:
+## PASSO 3
+Altere **js/controllers/palestrantes-controller.js** e crie o controller `PalestrantesController`:
 
 ```
 // public/js/controllers/palestrantes-controller.js
@@ -48,24 +49,31 @@ angular
 });
 ```
 
-ATENÇÃO: como não passamos o array de dependência para a função `module`, mesmo que vazia, o Angular entende que estamos querendo acessar um módulo já criado, em nosso caso `minhaApp`.
+ATENÇÃO: como não passamos o array de dependência para a função `module`, o Angular entende que estamos querendo acessar um módulo já criado, em nosso caso `minhaApp`.
 
 ## PASSO 4
-Criamos nosso controller, mas ainda precisamos disponibilizar nossa lista de `palestrantes` para nossa view e não pasta declararmos uma variável dentro do nosso controller, porque toda variável declarada com `var` em uma função é enxergada apenas dentro da função.
+
+Criamos nosso controller, mas ainda precisamos disponibilizar nossa lista de `palestrantes` para nossa view e não basta declararmos uma variável dentro do nosso controller, porque toda variável declarada com `var` em uma função é enxergada apenas dentro da função.
 
 É por isso que solicitamos ao sistema de injeção de dependências do angular o objeto `$scope` passando-o como parâmetro da função que representa nosso controller (O sistema de injeção do Angular é baseado em nomes e não na posição do parâmetro)
 
-O `$scope` é um objeto JavaScript e qualquer propriedade adicionada dinamicamente neste objeto é visível pelo fragmento da view gerenciado pelo nosso controller:
+O `$scope` é um objeto JavaScript e qualquer propriedade adicionada dinamicamente neste objeto é visível pelo fragmento da view gerenciado pelo nosso controller.
+
+**Altere** a declaração de `PalestrantesController`, recebendo como parâmetro **$scope** adicionando neste objeto a propriedade `participantes` que contém nossa lista de participantes:
 
 ```
+// public/js/controllers/palestrantes-controller.js
+
 angular
     .module('minhaApp')
     .controller('PalestrantesController', function($scope) {
+
         $scope.palestrantes = [
             {"nome": "Flávio Almeida", "palestra" : "MEAN"},
             {"nome" : "Zeca Baleiro",  "palestra" : "Angular"},
             {"nome" : "Tião Galinha",  "palestra" : "Mongo"}
         ];
+
 });
 ```
 
@@ -79,10 +87,10 @@ Altere `index.html` adicionando a diretiva `ng-controller` na tag `body`:
 <body ng-controller='PalestrantesController'>
 ```
 
-Queremos que a tag `body`sejam gerenciados por `PalestrantesController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope`:
+Queremos que a tag `body` sejam gerenciados por `PalestrantesController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope`:
 
 ### PASSO 6
-Verifique o resultado: aparecerá a estrutura de dados da nossa lista. Caso apareça `{{palestrantes}}` é porque houve algum problema no código anterior. Veja o console do seu navegador e tente descobrir, caso algum erro aconteça.
+Verifique o resultado: aparecerá a estrutura de dados da nossa lista. Caso apareça `{{palestrantes}}` é porque houve algum problema no código anterior. Veja o console do seu navegador e tente descobrir.
 
 
 ### PASSO 7 
@@ -94,6 +102,8 @@ Queremos exibir nossos participantes em uma tabela dinâmica que deve exibir o n
             <h1>Workshop MEAN</h1>
         </div>
         <div class="container">
+
+            <!-- novidade aqui! template da tabela -->
             <table class="table table-bordered">
                 <tr ng-repeat="palestrante in palestrantes">
                     <td>{{palestrante.nome}}</td>
