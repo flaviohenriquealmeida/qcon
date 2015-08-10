@@ -14,6 +14,8 @@ Nosso problema é que o Express ainda não está ciente deste endpoint, alguém 
 Vamos editar `config/express.js` e adicionar a configuração do `express-load`. Seu arquivo `config/express.js` deve ficar assim:
 
 ```
+// 02/config/express.js
+
 var express = require('express');
 
 // importa o módulo express-load
@@ -27,7 +29,7 @@ load('api', {cwd: 'app'}).into(app);
 
 module.exports = app;
 
-```
+``
 
 **PASSO 2**
 
@@ -45,7 +47,7 @@ Crie o arquivo **app/api/eventos.js**. Como estamos usando o `expres-load` ele c
 No início do arquivo `eventos.js`, crie uma lista de eventos. Usaremos dados estáticos por enquanto, mais tarde aprendemos a obter esses dados do MongoDB:
 
 ```
-// arquivo 02/app/api/eventos.js
+// 02/app/api/eventos.js
 
 var eventos = [
     {"nome" : "Workshop MEAN"},
@@ -60,7 +62,7 @@ Fazemos isso através de `app.route` da instância do Express recebida
 como parâmetro.
 
 ```
-// arquivo 02/app/api/eventos.js
+// 02/app/api/eventos.js
 
 var eventos = [
     {"nome" : "Workshop MEAN"},
