@@ -11,6 +11,7 @@ O primeiro passo é importar o módulo `ngRoute` para que possamos trabalhar com
 **Em index.html**, adicione a importação do módulo:
 
 ```
+<!-- public/index.html -->
 <script src="js/lib/angular-route.js"></script>
 ```
 
@@ -20,6 +21,7 @@ Isso ainda não é suficiente, precisamos indicar que nosso módulo `minhaApp` d
 **Altere public/js/main.js** adicionando a nova dependência:
 
 ```
+// public/js/main.js
 angular.module('minhaApp', ['ngResource', 'ngRoute']);
 ```
 
@@ -48,9 +50,8 @@ Agora, `index.html`, no lugar de exibir algum conteúdo, terá uma grande lacuna
 
 **Altere public/index.html**, o conteúdo da `div.container` será apenas a diretiva `<ng-view>`:
 
-
+```
 <!-- public/index.html -->
-
 <body>
     <div class="jumbotron text-center">
         <h1>Workshop MEAN</h1>
@@ -59,6 +60,7 @@ Agora, `index.html`, no lugar de exibir algum conteúdo, terá uma grande lacuna
         <ng-view></ng-view>
     </div>
 </body>
+```
 
 ## PASSO 4
 
@@ -67,6 +69,7 @@ De nada isso adiantará se não cadastramos as rotas que serão processadas no l
 **Altere public/js/main.js** adicionando uma chamada à função `config`, que recebe como artefato injetável `$routeProvider`. Sem o módulo `ngResource`, não seria possível injetá-lo. O serviço injetado possui a função `when` que recebe como primeiro parâmetro o nome da rota e o segundo um objeto JavaScript com as chaves `controller` e `templateUrl`:
 
 ```
+// public/js/main.js
 angular.module('minhaApp', ['ngResource', 'ngRoute'])
     .config(function($routeProvider) {
 
