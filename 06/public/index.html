@@ -10,18 +10,14 @@
 		<script src="js/main.js"></script>
 		<script src="js/controllers/palestrantes-controller.js"></script>
 		<script src="js/lib/angular-resource.js"></script>
+		<script src="js/lib/angular-route.js"></script>
 	</head>
-	<body ng-controller="PalestrantesController">
+	<body>
 		<div class="jumbotron text-center">
 			<h1>Workshop MEAN</h1>
 		</div>
 		<div class="container">
-			<table class="table table-bordered">
-				<tr ng-repeat="palestrante in palestrantes">
-					<td>{{palestrante.nome}}</td>
-					<td>{{palestrante.palestra}}</td>
-				</tr>
-			<table>
+			<ng-view></ng-view>
 		</div>
 	</body>
 </html>

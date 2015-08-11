@@ -2,7 +2,7 @@
 
 ## Exercício 5
 
-Para integrarmos nosso cliente Angular com nosso back-end, utilizaremos o serviço do Angular `$http`, especializado em requisições Ajax.
+Para integrarmos nosso cliente Angular com nosso back-end, utilizaremos o serviço do Angular `$http`, especializado em requisições Ajax. Depois, utilizaremos o `$resource`, especializado no consumo de API's REST.
 
 ## PASSO 1
 Angular trabalha com injeção de dependência baseada em nomes.
@@ -20,7 +20,7 @@ angular
 
 ## PASSO 2 
 Use o módulo `$http` para consumir o endereço `/palestrantes`. Lembre-se que ele devolve uma promise e que toda promise possui as funções `then`
- e `catch`. A primeira, recebe o callback de sucesso, a segundo, o de erro:
+ e `catch`. A primeira, recebe o callback de sucesso, a segunda, o de erro:
 
 ```
 angular
@@ -65,6 +65,7 @@ angular.module('minhaApp', ['ngResource']);
 Agora, substitua a injeção de `$http` por `$resource` e utilize a função `query` para obter todos os palestrantes:
 
 ```
+// public/js/controllers/palestrante-controller.js
 angular
     .module('minhaApp')
     .controller('PalestrantesController', function($scope, $resource) {
