@@ -4,6 +4,7 @@ var http = require('http')
 
 http.createServer(app)
 	.listen(3000, function() {
-		console.log('Server is running')
+		console.log('Server is running');
+		console.log('http://localhost:3000');
 	});
 
