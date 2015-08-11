@@ -104,7 +104,7 @@ Queremos exibir nossos participantes em uma tabela dinâmica que deve exibir o n
         <div class="container">
 
             <!-- novidade aqui! template da tabela -->
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
                 <tr ng-repeat="palestrante in palestrantes">
                     <td>{{palestrante.nome}}</td>
                     <td>{{palestrante.palestra}}</td>
