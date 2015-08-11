@@ -62,7 +62,7 @@ Agora, `index.html`, no lugar de exibir algum conteúdo, terá uma grande lacuna
 </body>
 ```
 
-## PASSO 4
+## PASSO 5
 
 De nada isso adiantará se não cadastramos as rotas que serão processadas no lado do cliente. É através delas que o Angular saberá qual parcial inserir dentro da diretiva `<ng-view>`:
 
