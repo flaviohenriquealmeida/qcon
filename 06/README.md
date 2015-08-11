@@ -27,6 +27,7 @@ angular.module('minhaApp', ['ngResource', 'ngRoute']);
 
 Chegou a hora de criarmos as views particiais `lista.html` e `cadastro.html`, ambas dentro da pasta `public/partials`
 
+```
 <!-- public/partials/lista.html -->
 <h1 class="text-center">Paletrantes</h1>
 <table class="table table-bordered">
@@ -35,10 +36,11 @@ Chegou a hora de criarmos as views particiais `lista.html` e `cadastro.html`, am
         <td>{{palestrante.palestra}}</td>
     </tr>
 <table>
-
+```
+```
 <!-- public/partials/palestrante.html -->
 <h2>Cadastro de Palestrante</h2>
-
+```
 
 ## PASSO 4
 
