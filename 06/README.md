@@ -66,6 +66,7 @@ De nada isso adiantará se não cadastramos as rotas que serão processadas no l
 
 **Altere public/js/main.js** adicionando uma chamada à função `config`, que recebe como artefato injetável `$routeProvider`. Sem o módulo `ngResource`, não seria possível injetá-lo. O serviço injetado possui a função `when` que recebe como primeiro parâmetro o nome da rota e o segundo um objeto JavaScript com as chaves `controller` e `templateUrl`:
 
+```
 angular.module('minhaApp', ['ngResource', 'ngRoute'])
     .config(function($routeProvider) {
 
@@ -81,4 +82,4 @@ angular.module('minhaApp', ['ngResource', 'ngRoute'])
         // se uma rota inexistente for acessada, redireciona para `/`
         $routeProvider.otherwise({redirectTo: '/'});
     });
-
+```
