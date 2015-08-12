@@ -27,24 +27,29 @@ Se digitarmos `db` teclando ENTER logo em seguida, o nome do nosso banco será e
 
 ### b)
 O Mongo Shell é compatível com a linguagem JavaScript. Vamos criar uma variável que representa um palestrante no formato JSON:
+
 ```
 palestrante = {"nome" : "Rayson", "palestra" : "perdendo peso"}
 ```
 
 ### c)
-Agora precisamos salvar este palestrante, mas em qual "tabela"? Bem, o MongoDB não trabalha com tabelas, mas com **collections** que não possuem esquemas. Vamos criar a collection `palestrantes` acessando-a como se fosse uma propriedade de `db`. Em seguida, a partir da collection, chamaremos a função `insert` que recebe nosso palestrante gravando-o em na collection `palestrantes`
+Agora precisamos salvar este palestrante, mas em qual "tabela"? Bem, o MongoDB não trabalha com tabelas, mas com **collections** que não possuem esquemas. Vamos criar a collection `palestrantes` acessando-a como se fosse uma propriedade de `db`. Em seguida, a partir da collection, chamaremos a função `insert` que recebe nosso palestrante gravando-o na collection `palestrantes`:
+
+```
 db.palestrantes.insert(palestrante)
 ```
 
 ### d)
 Excelente, agora vamos alterar nosso palestrante adicionando-o mais uma vez na collection `palestrantes`:
+
 ```
 palestrante = {"nome" : "Shall", "palestra" : "ganhando peso"}
 db.palestrantes.insert(palestrante)
 ```
 
 ### e)
-Temos dois palestrantes gravados. Como listá-los? Fazemos isso através da função `find`
+Temos dois palestrantes gravados. Como listá-los? Fazemos isso através da função `find`:
+
 ```
 db.palestrantes.find()
 ```
