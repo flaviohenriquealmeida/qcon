@@ -7,6 +7,7 @@ angular.module('minhaApp', ['ngResource', 'ngRoute'])
 		});
 
 		$routeProvider.when('/cadastro', {
+			controller: 'CadastroController',
 			templateUrl: 'partials/cadastro.html'
 		});
 
