@@ -41,7 +41,18 @@ Chegou a hora de criarmos as views particiais `lista.html` e `cadastro.html`, am
 ```
 ```
 <!-- public/partials/palestrante.html -->
-<h2>Cadastro de Palestrante</h2>
+<h2 class="text-center">Cadastro de Palestrante</h2>
+<form>
+    <div class="form-group">
+        <label>Nome</label>
+        <input class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Palestra</label>
+        <input class="form-control">
+    </div>
+    <button class="btn btn-primary">Cadastrar</button>
+</form>
 ```
 
 ## PASSO 4
