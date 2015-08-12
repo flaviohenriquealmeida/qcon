@@ -31,7 +31,7 @@ Chegou a hora de criarmos as views particiais `lista.html` e `cadastro.html`, am
 
 ```
 <!-- public/partials/lista.html -->
-<h1 class="text-center">Paletrantes</h1>
+<h2 class="text-center">Lista de Palestrantes</h2>
 <table class="table table-bordered">
     <tr ng-repeat="palestrante in palestrantes">
         <td>{{palestrante.nome}}</td>
@@ -40,8 +40,8 @@ Chegou a hora de criarmos as views particiais `lista.html` e `cadastro.html`, am
 <table>
 ```
 ```
-<!-- public/partials/palestrante.html -->
-<h2 class="text-center">Cadastro de Palestrante</h2>
+<!-- public/partials/cadastro.html -->
+<h2 class="text-center">Cadastro de Palestrantes</h2>
 <form>
     <div class="form-group">
         <label>Nome</label>
@@ -85,8 +85,8 @@ angular.module('minhaApp', ['ngResource', 'ngRoute'])
     .config(function($routeProvider) {
 
         $routeProvider.when('/', {
-            controller: 'PalestrantesController',
-            templateUrl: 'partials/listagem.html'
+            controller: 'ListaController',
+            templateUrl: 'partials/lista.html'
         });
 
         $routeProvider.when('/cadastro', {

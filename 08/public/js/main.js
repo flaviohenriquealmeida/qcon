@@ -2,8 +2,8 @@ angular.module('minhaApp', ['ngResource', 'ngRoute'])
 	.config(function($routeProvider) {
 
 		$routeProvider.when('/', {
-			controller: 'PalestrantesController',
-			templateUrl: 'partials/listagem.html'
+			controller: 'ListaController',
+			templateUrl: 'partials/lista.html'
 		});
 
 		$routeProvider.when('/cadastro', {

@@ -6,14 +6,14 @@ Para integrarmos nosso cliente Angular com nosso back-end, utilizaremos o servi�
 
 ## PASSO 1
 Angular trabalha com injeção de dependência baseada em nomes.
-**Altere** `palestrantes-controller.js` e injete o serviço `$http`. Aproveite e deixe nosso array de palestrantes vazio:
+**Altere** `lista-controller.js` e injete o serviço `$http`. Aproveite e deixe nosso array de palestrantes vazio:
 
 ```
-// public/js/controllers/palestrantes-controller.js
+// public/js/controllers/lista-controller.js
 
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope, $http) {
+    .controller('ListaController', function($scope, $http) {
         $scope.palestrantes = []
     });
 ```
@@ -25,7 +25,7 @@ Use o módulo `$http` para consumir o endereço `/palestrantes`. Lembre-se que e
 ```
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope, $http) {
+    .controller('ListaController', function($scope, $http) {
         $scope.palestrantes = [];
 
         $http.get('/palestrantes')
@@ -65,10 +65,10 @@ angular.module('minhaApp', ['ngResource']);
 Agora, substitua a injeção de `$http` por `$resource` e utilize a função `query` para obter todos os palestrantes:
 
 ```
-// public/js/controllers/palestrante-controller.js
+// public/js/controllers/lista-controller.js
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope, $resource) {
+    .controller('ListaController', function($scope, $resource) {
         $scope.palestrantes = []
 
         // cria uma instância para o endpoint

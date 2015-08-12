@@ -1,6 +1,6 @@
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope, $resource) {
+    .controller('ListaController', function($scope, $resource) {
         $scope.palestrantes = []
 
         var recurso = $resource('/palestrantes');

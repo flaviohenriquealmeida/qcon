@@ -25,26 +25,26 @@ Abrimos a lacuna em nossa view, mas dentro do modelo MVC é papel de do **contro
 
 ## PASSO 2 
 
-Crie o arquivo **public/js/controllers/palestrantes-controller.js**. Importe-o logo em seguida em nossa view `index.html`, logo abaixo do `main.js`:
+Crie o arquivo **public/js/controllers/lista-controller.js**. Importe-o logo em seguida em nossa view `index.html`, logo abaixo do `main.js`:
 
 ```
 <!-- public/index.html -->
 <script src="js/lib/angular.js"></script>
 <script src="js/main.js"></script>
 <!-- novo arquivo importado -->
-<script src="js/controllers/palestrantes-controller.js"></script>
+<script src="js/controllers/lista-controller.js"></script>
 ```
 
 Apesar de termos criado nosso controller em um arquivo em separado, ele precisa pertencer ao módulo `minhaApp`.
 
 ## PASSO 3
-Altere **js/controllers/palestrantes-controller.js** e crie o controller `PalestrantesController`:
+Altere **js/controllers/lista-controller.js** e crie o controller `ListaController`:
 
 ```
-// public/js/controllers/palestrantes-controller.js
+// public/js/controllers/lista-controller.js
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope) {
+    .controller('ListaController', function($scope) {
     
 });
 ```
@@ -59,14 +59,14 @@ Criamos nosso controller, mas ainda precisamos disponibilizar nossa lista de `pa
 
 O `$scope` é um objeto JavaScript e qualquer propriedade adicionada dinamicamente neste objeto é visível pelo fragmento da view gerenciado pelo nosso controller.
 
-**Altere** a declaração de `PalestrantesController`, recebendo como parâmetro **$scope** adicionando neste objeto a propriedade `participantes` que contém nossa lista de participantes:
+**Altere** a declaração de `ListaController`, recebendo como parâmetro **$scope** adicionando neste objeto a propriedade `participantes` que contém nossa lista de participantes:
 
 ```
-// public/js/controllers/palestrantes-controller.js
+// public/js/controllers/lista-controller.js
 
 angular
     .module('minhaApp')
-    .controller('PalestrantesController', function($scope) {
+    .controller('ListaController', function($scope) {
 
         $scope.palestrantes = [
             {"nome": "Flávio Almeida", "palestra" : "MEAN"},
@@ -79,15 +79,15 @@ angular
 
 ## PASSO 5
 Angular permite termos mais de um controller por view permitindo que cada controller gerencia parte do DOM. É por isso que criar o controller não é suficiente, precisamos indicar qual elemento do DOM ele gerenciará, isto é, qual será o seu **escopo**. Fazemos isso através diretiva **ng-controller** 
-que deve ter como valor o nome exato do controller que desejamos asssociar àquele elemento do DOM, em nosso caso, `PalestrantesController`:
+que deve ter como valor o nome exato do controller que desejamos asssociar àquele elemento do DOM, em nosso caso, `ListaController`:
 
 Altere `index.html` adicionando a diretiva `ng-controller` na tag `body`:
 
 ```
-<body ng-controller='PalestrantesController'>
+<body ng-controller='ListaController'>
 ```
 
-Queremos que a tag `body` sejam gerenciados por `PalestrantesController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope`:
+Queremos que a tag `body` sejam gerenciados por `ListaController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope`:
 
 ### PASSO 6
 Verifique o resultado: aparecerá a estrutura de dados da nossa lista. Caso apareça `{{palestrantes}}` é porque houve algum problema no código anterior. Veja o console do seu navegador e tente descobrir.
@@ -97,7 +97,7 @@ Verifique o resultado: aparecerá a estrutura de dados da nossa lista. Caso apar
 Queremos exibir nossos participantes em uma tabela dinâmica que deve exibir o nome e a palestra do palestrante. Vamos usar a diretiva `ng-repeat` para criar uma `<tr>` para cada um de nossos participantes:
 
 ```
-    <body ng-controller="PalestrantesController">
+    <body ng-controller="ListaController">
         <div class="jumbotron text-center">
             <h1>Workshop MEAN</h1>
         </div>
