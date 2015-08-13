@@ -1,6 +1,6 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
-## Exercício 6
+# EXERCÍCIO 6
 
 Não é porque estamos criando uma Single Page Application que tudo ficará no `index.html`. Vamos criar uma view partcial para a listagem de palestrantes e outra para o cadastro de palestrantes que ainda faremos.
 

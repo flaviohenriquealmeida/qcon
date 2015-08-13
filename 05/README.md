@@ -1,6 +1,6 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro desta pasta, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
-## Exercício 5
+# EXERCÍCIO 5
 
 Para integrarmos nosso cliente Angular com nosso back-end, utilizaremos o serviço do Angular `$http`, especializado em requisições Ajax. Depois, utilizaremos o `$resource`, especializado no consumo de API's REST.
 

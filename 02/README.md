@@ -1,17 +1,17 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
-## Exercício - 2
+# EXERCÍCIO - 2
 
-Temos um servidor web que apenas compartilha dados estáticos, mas isso não é suficiente. Precisamos criar alguns endpoints REST que serão consumidos por nosso cliente em Angular.
+Temos um servidor web que apenas compartilha arquivos estáticos, mas isso não é suficiente. Precisamos criar alguns endpoints REST que serão consumidos pelo cliente Angular que ainda faremos.
 
 
-**PASSO 1**
+## PASSO 1
 
-Vamos seguir a seguinte convenção: nossos endpoints ficarão todos dentro da pasta `app/api`, inclusive já temos o `app/api/palestrantes.js` que configura a rota `/palestrantes` que retorna uma lista de palestrantes. 
+Vamos seguir a seguinte convenção: nossos endpoints ficarão todos dentro da pasta `app/api`, inclusive já temos o `app/api/palestrantes.js` que configura a rota `/palestrantes` que retorna uma lista de palestrantes.
 
-Nosso problema é que o Express ainda não está ciente deste endpoint, alguém precisa carregá-lo. Uma maneira de fazermos isso é através do modulo `express-load`. Podemos indicar a pasta `app/api` fazendo com que ele carregue automaticamente nossas novas API's à medida que forem adicionadas dentro da pasta.
+Nosso problema é que o Express ainda não está ciente deste endpoint, alguém precisa carregá-lo. Uma maneira de fazermos isso é através do modulo `express-load`. Podemos indicar para este módulo a pasta `app/api` e todas as novas API's que forem adicionadas serão carregadas automaticamente sem qualquer outro tipo de configuração (você ainda precisará reiniciar o servidor).
 
-Vamos editar `config/express.js` e adicionar a configuração do `express-load`. Seu arquivo `config/express.js` deve ficar assim:
+**Edite** o arquivo `config/express.js` importando e configurando o `express-load`. Seu arquivo `config/express.js` deve ficar assim:
 
 ```
 // 02/config/express.js
@@ -31,18 +31,20 @@ module.exports = app;
 
 ```
 
-**PASSO 2**
+A configuração `{cwd: 'app'}` indica a raíz na qual o `express-load` procurará os demais diretórios para carregamento de módulos.
+
+## PASSO 2
 
 Agora que você configurou o expres-load, já pode subir o servidor com `npm start` e acessar a URL `http://localhost:3000/participantes` que 
 retornará um JSON com uma lista de participantes.
 
-**PASSO 3**
+## PASSO 3
 
 Estamos acessando um endpoint que foi registrado no Express, mas isso não vale, ele já estava criado! Vamos criar um novo endpoint!
 
 Crie o arquivo **app/api/eventos.js**. Como estamos usando o `expres-load` ele carregará o arquivo quando o servidor for reiniciado, mas é claro, precisamos configurar o novo arquivo primeiro.
 
-**PASSO 4**
+## PASSO 4
 
 No início do arquivo `eventos.js`, crie uma lista de eventos. Usaremos dados estáticos por enquanto, mais tarde aprendemos a obter esses dados do MongoDB:
 
@@ -77,3 +79,8 @@ module.exports = function(app) {
         });
 };
 ```
+ O objeto `app.route` possui uma função para cada verbo HTTP, em nosso caso, estamos interessados em lidar para requisições do tipo `GET` quando a URL `/eventos` for acessada, por isso usamos uma função de mesmo nome. Esta função recebe como parâmetro um callback que será executado quando a requisição for executada, retornando como resposta um JSON com os dados dos eventos. O próprio objeto que presenta o fluxo de resposta já possui o a função `json` que sabe lidar com essa estrutura de dados.
+
+## PASSO 5
+
+Depois de reiniciar o servidor, experimente acessar a URL `http://localhost:3000/eventos`. Os dados dos eventos devem ser exibidos em seu navegador.

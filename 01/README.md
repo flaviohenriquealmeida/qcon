@@ -1,6 +1,6 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
-## Exercício - 1
+# EXERCÍCIO - 1
 
 Nosso projeto possui a seguinte estrutura:
 
@@ -15,7 +15,7 @@ public
     index.html -> Página principal da aplicação
 ```
 
-**PASSO 1**
+## PASSO 1
 
 Inicie seu servidor, para isso, dentro da pasta 01, utilize o comando:
 
@@ -23,9 +23,11 @@ Inicie seu servidor, para isso, dentro da pasta 01, utilize o comando:
 npm start
 ```
 
-**PASSO 2**
+Nosso servidor incializa, mas a instância do Express passada para nosso servidor ainda não foi devidamente configurada. Por exemplo, ainda não somos capazes de acessar o arquivo `index.html` dentro da pasta `public`, algo fundamental para o cliente em Angular que faremos. 
 
-Nosso servidor incializa, mas a instância do Express passada para nosso servidor ainda não foi devidamente configurada. Por exemplo, ainda não somos capazes de acessar o arquivo `index.html` dentro da pasta `public`. Precisamos configurar nosso primeiro middleware!
+Para que possamos compartilhar arquivos estáticos, precisamos adicionar e configurar um middleware na configuração do Express.
+
+## PASSO 2
 
 Altere o arquivo **01/config/express.js** e adicione o middleware `express-static` para tornar acessível a pasta `public` com todos os seus arquivos para o navegador:
 
@@ -43,6 +45,6 @@ module.exports = app;
 
 Será necessário parar o servidor (CONTROL + C, COMMAND + C) e reiniciá-lo novamente para que as alterações surtam efeito.
 
-**PASSO 3**
+## PASSO 3
 
-Experimente acessar o endereço `http://localhost:3000` e verifique se a tela de boas-vindas do workshop é exibida. 
+Experimente acessar o endereço `http://localhost:3000`. Como já temos a página `01/public/index.html`, a mensagem `Workshop MEAN deve ser exibida.

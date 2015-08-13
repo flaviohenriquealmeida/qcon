@@ -1,6 +1,6 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
-## Exercício 7
+# EXERCÍCIO 7
 
 Com o MongoDB devidamente instalado, dentro do terminal do seu sistema operacional favorito, cheme o Mongo Shell:
 
