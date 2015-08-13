@@ -16,7 +16,7 @@ module.exports = function(app) {
 			.create(req.body)
 			.then(function(palestrante) {
 				res.status(200).send(palestrante);
-			})
+			});
 		});
 };
 
