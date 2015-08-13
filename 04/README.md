@@ -1,10 +1,12 @@
 **IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
 # EXERCÍCIO 4
+
 Nossa tarefa será construir uma lista de palestrantes dinamicamente através do Angular, entendendo como funciona seu mecanismo de `data binding`.
 
 
 ## PASSO 1 
+
 Vamos indicar que nossa view `index.html` precisa de uma lista de `participantes` através de uma **Angular Expression** caracterizada por `{{ expressao }}`. No final das contas, estamos abrindo uma lacuna em nossa view que precisa ser preenchida:
 
 
@@ -38,6 +40,7 @@ Crie o arquivo **public/js/controllers/lista-controller.js**. Importe-o logo em 
 Apesar de termos criado nosso controller em um arquivo em separado, ele precisa pertencer ao módulo `minhaApp`.
 
 ## PASSO 3
+
 Altere **js/controllers/lista-controller.js** e crie o controller `ListaController`:
 
 ```
@@ -78,7 +81,8 @@ angular
 ```
 
 ## PASSO 5
-Angular permite termos mais de um controller por view permitindo que cada controller gerencia parte do DOM. É por isso que criar o controller não é suficiente, precisamos indicar qual elemento do DOM ele gerenciará, isto é, qual será o seu **escopo**. Fazemos isso através diretiva **ng-controller** 
+
+Angular permite termos mais de um controller por view permitindo que cada controller gerencie parte do DOM. É por isso que criar o controller não é suficiente, precisamos indicar qual elemento do DOM ele gerenciará, isto é, qual será o seu **escopo**. Fazemos isso através diretiva **ng-controller** 
 que deve ter como valor o nome exato do controller que desejamos asssociar àquele elemento do DOM, em nosso caso, `ListaController`:
 
 Altere `index.html` adicionando a diretiva `ng-controller` na tag `body`:
@@ -87,9 +91,10 @@ Altere `index.html` adicionando a diretiva `ng-controller` na tag `body`:
 <body ng-controller='ListaController'>
 ```
 
-Queremos que a tag `body` sejam gerenciados por `ListaController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope`:
+Queremos que a tag `body` seja gerenciada por `ListaController`. Isso permitirá que a AE (Angular Expression) que adicionamos em `index.html` seja resolvida utilizando a lista de participantes disponibilizada em `$scope` de `ListaController`.
 
 ### PASSO 6
+
 Verifique o resultado: aparecerá a estrutura de dados da nossa lista. Caso apareça `{{palestrantes}}` é porque houve algum problema no código anterior. Veja o console do seu navegador e tente descobrir.
 
 

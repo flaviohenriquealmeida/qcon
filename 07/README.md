@@ -16,6 +16,7 @@ connecting to: test
 ```
 
 ## PASSO 1
+
 Por padrão, estamos conectados com o baco `test`. Vamos nos conectar no banco `workshop`, caso ele não existe, o MongoDB o criará automaticamente:
 
 ### a)
@@ -80,6 +81,7 @@ http.createServer(app)
 Faça um teste, parando seu servidor iniciando-o logo em seguida. A string `Mongoose! Connectado em localhost/workshophttp://localhost` deve ser exibida.
 
 ## PASSO 4
+
 Apesar do MongoDB ser Schemaless, isso não quer dizer que esquemas não sejam importantes, a grande questão é que eles são responsabilidades da aplicação. Criaremos nosso primeiro esquema que representa um palestrante.
 
 **Crie** o arquivo **app/models/palestrante.js**.
@@ -110,6 +112,7 @@ module.exports = function() {
 ```
 
 ## PASSO 5
+
 Precisamos usar o modelo `Palestrante` em nossa API, mas como? Precisamos alterar express-load para que carregue primeiro todos os módulos da pasta `models` para em seguida carregar nossa API.
 
 **Altere** `07/config/express.js`, a linha que chama a função `load` deve ficar assim:
@@ -121,6 +124,7 @@ load('models', {cwd: 'app'})
 ```
 
 ## PASSO 6
+
 Essa pequena alteração tornará acessível nosso modelo através da instância do expressa passada como parâmetro para a API. Lembre-se que é o Express load que carregará todos os módulos dentro de `models` inclusive nossas `API's`
 ```
 

@@ -5,6 +5,7 @@
 Para integrarmos nosso cliente Angular com nosso back-end, utilizaremos o serviço do Angular `$http`, especializado em requisições Ajax. Depois, utilizaremos o `$resource`, especializado no consumo de API's REST.
 
 ## PASSO 1
+
 Angular trabalha com injeção de dependência baseada em nomes.
 **Altere** `lista-controller.js` e injete o serviço `$http`. Aproveite e deixe nosso array de palestrantes vazio:
 
@@ -18,7 +19,8 @@ angular
     });
 ```
 
-## PASSO 2 
+## PASSO 2
+
 Use o módulo `$http` para consumir o endereço `/palestrantes`. Lembre-se que ele devolve uma promise e que toda promise possui as funções `then`
  e `catch`. A primeira, recebe o callback de sucesso, a segunda, o de erro:
 
@@ -42,6 +44,7 @@ angular
 Recaregue sua página no navegador. A lista deve ser exibida com os dados que vieram do servidor.
 
 ## PASSO 3
+
 Vamos substituir o uso de `$http` por `$resource`, este último um serviço especializado do Angular para consumir endpoints que seguem o padrão REST.
 
 **Primeiro**, importe o script do módulo `ngResource` em `index.html`, 
@@ -52,6 +55,7 @@ logo após o último script que importamos:
 ```
 
 ## PASSO 4
+
 Carregar o módulo não é suficiente. Precisamos adicionar o módulo `ngResource` como dependência do nosso módulo `minhaApp`
 
 **Altere** `public/js/main.js`:
@@ -88,4 +92,5 @@ angular
 ```
 
 ## PASSO 6
+
 Agora teste o resultado, a lista deve continuar a ser exibida, só que dessa vez, utilizando o serviço `$resource`.

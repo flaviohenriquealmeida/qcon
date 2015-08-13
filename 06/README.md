@@ -16,6 +16,7 @@ O primeiro passo é importar o módulo `ngRoute` para que possamos trabalhar com
 ```
 
 ## PASSO 2
+
 Isso ainda não é suficiente, precisamos indicar que nosso módulo `minhaApp` depende do módulo `ngRoute`:
 
 **Altere public/js/main.js** adicionando a nova dependência:

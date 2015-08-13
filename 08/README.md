@@ -62,6 +62,7 @@ module.exports = app;
 
 ```
 ## PASSO 3 
+
 Agora que já sabemos que `req.body` é nosso palestrante enviado pelo nosso cliente Angular, podemos usar a função `Palestrante.create` do nosso modelo do Mongoose para gravá-lo no banco. Como resposta, enviaremos para o cliente o paestrante, só que dessa vez com seu ID preenchido:
 
 ```
@@ -92,6 +93,7 @@ module.exports = function(app) {
 ```
 
 ## PASSO 4
+
 Vamos voltar para nosso cliente Angular. 
 
 **Crie** o arquivo **public/js/controllers/cadastro-controller.js** importando-o em `public/index.html`, de preferência, logo após a importação de `lista-controller.js'>
@@ -116,6 +118,7 @@ angular.module('minhaApp')
 
 
 ## PASSO 5
+
 Crie em **$scope** a propriedade **palestrante** que será uma instância do serviço que criamos. Isso permitará evocarmos uma série de funções que nos auxiliarão a sincronizar o palestrante com o nosso servidor.
 
 ```
@@ -129,6 +132,7 @@ angular.module('minhaApp')
 ```
 
 ## PASSO 6
+
 Precisamos que os dois input's do nosso formulário (nome e palestra) estejam assciados às propriedades de `$scope.palestrante`. Fazemos isso através da diretiva `ng-model`, que além de ler, é capaz de gravar no escopo do controller (two-way data binding):
 
 ```
@@ -147,7 +151,8 @@ Precisamos que os dois input's do nosso formulário (nome e palestra) estejam as
 </form>
 ```
 
-## PASSO 7 
+## PASSO 7
+
 Todas vez que interagirmos com o input, nossa entrada será atualizada em `$scope.palestrante.nome` e `$scope.palestrante.palestra`. A ideia agora é executarmos alguma ação no controller que envie os dados capturados para o servidor. 
 
 **Altere** `public/js/controllers/cadastro-controller.js` adicionando a propriedade `$scope.gravar`:
@@ -167,6 +172,7 @@ angular.module('minhaApp')
 ```
 
 ## PASSO 8
+
 Dentro da nossa função `gravar`, vamos invocar a função `$scope.palestrantes.$save`. Como nosso palestrante é um instância do nosso recurso, ele possui esta função que por debaixo dos panos executa uma requisição do tipo POST enviando todas as propriedades do palestrante como parâmetros para nosso endpoint `/palestrantes`, aquele que definimos quando criamos nosso recurso:
 
 ```
@@ -187,6 +193,7 @@ angular.module('minhaApp')
 ```
 
 ## PASSO 9
+
 Se tudo correr bem, quando salvarmos nosso palestrante, a função passada como callback para `$save` será executada. É uma boa hora de limparmos o nosso formulário. Basta atribuírmos à `$scope.palestrante` uma nova instância do nosso recurso. Devido ao two-way data binding, essa alteração refletirá em nosso formulário, limpando-o:
 
 ```
@@ -208,6 +215,7 @@ angular.module('minhaApp')
 ```
 
 ## PASSO 10
+
 Mas como nosso formulário sabe que deve chegar `$scope.gravar`? Vamos usar a diretiva `ng-submit` no próprio formulário. Para cada evento do JavaScript, temos uma diretiva correspondente no Angular. Nela, indicamos que queremos chamar a função `gravar()` apenas quando o formulário for submetido:
 
 ```
@@ -216,7 +224,8 @@ Mas como nosso formulário sabe que deve chegar `$scope.gravar`? Vamos usar a di
 <form ng-submit="gravar()">
 ```
 
-### PASSO 11 
+### PASSO 11
+
 Precisamos agora associar o controller `CadastroController` com nossa view `cadastro.html`.
 
 **Altere** `public/main.js` e adicione a chave `controller` que falta para a rota `cadastro`, e claro, atribuindo como seu valor `CadastroController:
