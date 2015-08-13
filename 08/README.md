@@ -1,4 +1,4 @@
-**IMPORTANTE**: em seu terminal de preferência, dentro da pasta 01, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
+**IMPORTANTE**: em seu terminal de preferência, dentro deste diretório, baixe todas as dependências do projeto através do comando `npm install` antes de continuar.
 
 ## Exercício 8
 
@@ -206,4 +206,14 @@ angular.module('minhaApp')
         }
     });
 ```
+
+## PASSO 10
+Mas como nosso formulário sabe que deve chegar `$scope.gravar`? Vamos usar a diretiva `ng-submit` no próprio formulário. Para cada evento do JavaScript, temos uma diretiva correspondente no Angular. Nela, indicamos que queremos chamar a função `gravar()` apenas quando o formulário for submetido:
+
+```
+<!-- public/partials/cadastro.html -->
+<!-- adicionando a diretiva ng-submit no formulário -->
+<form ng-submit="gravar()">
+```
+
 Agora é só testar o resultado. Cadastre alguns palestrantes, depois, verifique se todos aparecem na listagem.
