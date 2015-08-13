@@ -35,7 +35,7 @@ module.exports = function(app) {
 
 ## PASSO 2
 
-Quando nosso cliente Angular enviados os dados do palestrante (ainda precisamos implementar essa funcionalidade) eles serão enviados através 
+Quando nosso cliente Angular enviar os dados do palestrante (ainda precisamos implementar essa funcionalidade) eles serão enviados através 
 do método POST. Mas onde teremos acesso a esses dados? O Express possui o middleware `body-parser`. Quando ativado, todos os dados enviados na requisição serão acessíveis através de `req.body`, sendo assim, `req.body` será nosso palestrante! **Precisamos ativar o middleware**.
 
 **Altere** `app/config/express.js` e importe o módulo, configurando-o logo em seguida. Seu arquivo deverá ficar assim:
@@ -167,7 +167,7 @@ angular.module('minhaApp')
 ```
 
 ## PASSO 8
-Dentro da nossa função `gravar`, vamos invocar a função `$scope.palestrantes.$save`. Como nosso palestrante é um instância do nosso recurso, ele possui esta função que por debaixo dos panos executa uma requisição do tipo POST enviado todas as propriedades do palestrantes como parâmetros para nosso endpoint `/palestrantes`, aquele que definimos quando criamos nosso recurso:
+Dentro da nossa função `gravar`, vamos invocar a função `$scope.palestrantes.$save`. Como nosso palestrante é um instância do nosso recurso, ele possui esta função que por debaixo dos panos executa uma requisição do tipo POST enviando todas as propriedades do palestrante como parâmetros para nosso endpoint `/palestrantes`, aquele que definimos quando criamos nosso recurso:
 
 ```
 angular.module('minhaApp')

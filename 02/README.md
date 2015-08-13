@@ -29,7 +29,7 @@ load('api', {cwd: 'app'}).into(app);
 
 module.exports = app;
 
-``
+```
 
 **PASSO 2**
 
