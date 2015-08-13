@@ -216,4 +216,21 @@ Mas como nosso formulário sabe que deve chegar `$scope.gravar`? Vamos usar a di
 <form ng-submit="gravar()">
 ```
 
+### PASSO 11 
+Precisamos agora associar o controller `CadastroController` com nossa view `cadastro.html`.
+
+**Altere** `public/main.js` e adicione a chave `controller` que falta para a rota `cadastro`, e claro, atribuindo como seu valor `CadastroController:
+
+```
+// public/main.js
+// código anterior omitido
+
+$routeProvider.when('/cadastro', {
+    controller: 'CadastroController',
+    templateUrl: 'partials/cadastro.html'
+});
+
+// código posterior omitido
+```
+
 Agora é só testar o resultado. Cadastre alguns palestrantes, depois, verifique se todos aparecem na listagem.
