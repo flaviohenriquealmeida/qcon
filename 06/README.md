@@ -63,6 +63,7 @@ Agora, `index.html`, no lugar de exibir algum conteúdo, terá uma grande lacuna
 
 ```
 <!-- public/index.html -->
+<!-- código anterior omitido -->
 <body>
     <div class="jumbotron text-center">
         <h1>Workshop MEAN</h1>
@@ -71,6 +72,7 @@ Agora, `index.html`, no lugar de exibir algum conteúdo, terá uma grande lacuna
         <ng-view></ng-view>
     </div>
 </body>
+<!-- código posterior omitido -->
 ```
 
 ## PASSO 5
