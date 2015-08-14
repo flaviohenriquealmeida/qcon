@@ -2,13 +2,11 @@ angular.module('minhaApp')
 	.controller('CadastroController', function($scope, $resource) {
 
 		var recursoPalestrante = $resource('/palestrantes');
-		$scope.palestrante = new recursoPalestrante();
+		$scope.palestrante = {};
 
 		$scope.gravar = function() {
 
-			$scope.palestrante.$save(function() {
-				
-				// limpa o formulário
+			recursoPalestrante.save($scope.palestrante, function() {
 				$scope.palestrante = new recursoPalestrante();
 			});
 		}

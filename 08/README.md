@@ -119,14 +119,14 @@ angular.module('minhaApp')
 
 ## PASSO 5
 
-Crie em **$scope** a propriedade **palestrante** que será uma instância do serviço que criamos. Isso permitará evocarmos uma série de funções que nos auxiliarão a sincronizar o palestrante com o nosso servidor.
+Crie em **$scope** a propriedade **palestrante**. Ela receberá os dados do formuário do palestrante à medida que formos digitando.
 
 ```
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
         var recursoPalestrante = $resource('/palestrantes');
-        $scope.palestrante = new recursoPalestrante();
+        $scope.palestrante = {};
 
     });
 ```
@@ -162,7 +162,7 @@ angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
         var recursoPalestrante = $resource('/palestrantes');
-        $scope.palestrante = new recursoPalestrante();
+        $scope.palestrante = {};
 
         $scope.gravar = function() {
 
@@ -173,28 +173,28 @@ angular.module('minhaApp')
 
 ## PASSO 8
 
-Dentro da nossa função `gravar`, vamos invocar a função `$scope.palestrantes.$save`. Como nosso palestrante é um instância do nosso recurso, ele possui esta função que por debaixo dos panos executa uma requisição do tipo POST enviando todas as propriedades do palestrante como parâmetros para nosso endpoint `/palestrantes`, aquele que definimos quando criamos nosso recurso:
+Dentro da nossa função `gravar`, vamos invocar `recursoFoto.save()`, que recebe o palestrante como parâmetro. Por baixo dos panos uma requisição do tipo POST enviará todas as propriedades do palestrante como parâmetros para nosso endpoint `/palestrantes`, aquele que definimos quando criamos nosso recurso:
 
 ```
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
         var recursoPalestrante = $resource('/palestrantes');
-        $scope.palestrante = new recursoPalestrante();
+        $scope.palestrante = {};
 
         $scope.gravar = function() {
 
-            $scope.palestrante.$save(function() {
+            recursoPalestrante.save($scope.palestrante, function() {
                 
-                // callbak chamado quando salvar com sucesso
-            });
+                // salva o palestrante
+             });
         }
     });
 ```
 
 ## PASSO 9
 
-Se tudo correr bem, quando salvarmos nosso palestrante, a função passada como callback para `$save` será executada. É uma boa hora de limparmos o nosso formulário. Basta atribuírmos à `$scope.palestrante` uma nova instância do nosso recurso. Devido ao two-way data binding, essa alteração refletirá em nosso formulário, limpando-o:
+Se tudo correr bem, quando salvarmos nosso palestrante, a função passada como callback para `save` será executada. É uma boa hora de limparmos o nosso formulário. Basta atribuírmos à `$scope.palestrante` uma nova instância do nosso recurso. Devido ao two-way data binding, essa alteração refletirá em nosso formulário, limpando-o:
 
 ```
 angular.module('minhaApp')
@@ -205,11 +205,10 @@ angular.module('minhaApp')
 
         $scope.gravar = function() {
 
-            $scope.palestrante.$save(function() {
+            recursoPalestrante.save($scope.palestrante, function() {
                 
-                // limpa o formulário
-                $scope.palestrante = new recursoPalestrante();
-            });
+                $scope.palestrante = {};
+             });
         }
     });
 ```
