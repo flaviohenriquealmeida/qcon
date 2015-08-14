@@ -1,0 +1,8 @@
+<h1 class="text-center">Paletrantes</h1>
+<table class="table table-bordered table-striped">
+	<tr ng-repeat="palestrante in palestrantes">
+		<td>{{palestrante.nome}}</td>
+		<td>{{palestrante.palestra}}</td>
+		<td><button class="btn btn-danger" ng-click="remover(palestrante)">Remover</button></td>
+	</tr>
+<table>

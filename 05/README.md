@@ -51,7 +51,12 @@ Vamos substituir o uso de `$http` por `$resource`, este último um serviço espe
 logo após o último script que importamos:
 
 ```
+<!-- public/index.html -->
+<!-- código anterior omitido -->
+
 <script src="js/lib/angular-resource.js"></script>
+
+<!-- código posterior omitido -->
 ```
 
 ## PASSO 4
@@ -61,6 +66,8 @@ Carregar o módulo não é suficiente. Precisamos adicionar o módulo `ngResourc
 **Altere** `public/js/main.js`:
 
 ```
+// public/js/main.js
+
 angular.module('minhaApp', ['ngResource']);
 ```
 
