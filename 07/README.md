@@ -95,10 +95,7 @@ module.exports = function() {
   var schema = mongoose.Schema({
     nome: { 
       type: String, 
-      required: true,
-      index: {
-        unique: true
-      }
+      required: true
     }, 
     palestra: {
       type: String, 

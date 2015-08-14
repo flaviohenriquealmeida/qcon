@@ -3,9 +3,9 @@ angular
     .controller('ListaController', function($scope, $resource) {
         $scope.palestrantes = []
 
-        var recurso = $resource('/palestrantes');
+        var recursoPalestrante = $resource('/palestrantes');
 
-        recurso.query(
+        recursoPalestrante.query(
             function(palestrantes) {
                 $scope.palestrantes = palestrantes;
             }, 

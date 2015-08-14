@@ -1,12 +1,10 @@
 angular
     .module('minhaApp')
-    .controller('ListaController', function($scope, $resource) {
+    .controller('ListaController', function($scope, recursoPalestrante) {
 
         $scope.palestrantes = []
 
-        var recurso = $resource('/palestrantes/:id');
-
-        recurso.query(
+        recursoPalestrante.query(
             function(palestrantes) {
                 $scope.palestrantes = palestrantes;
             }, 
@@ -16,7 +14,7 @@ angular
         );  
 
         $scope.remover = function(palestrante) {
-            recurso.delete({id: palestrante._id}, function() {
+            recursoPalestrante.delete({id: palestrante._id}, function() {
                 var index = $scope.palestrantes.indexOf(palestrante);
                 $scope.palestrantes.splice(index,1);
             }, function(erro) {

@@ -86,9 +86,9 @@ angular
 
         $scope.palestrantes = []
 
-        var recurso = $resource('/palestrantes/:id');
+        var recursoPalestrante = $resource('/palestrantes/:id');
 
-        recurso.query(
+        recursoPalestrante.query(
             function(palestrantes) {
                 $scope.palestrantes = palestrantes;
             }, 
@@ -100,7 +100,7 @@ angular
         // novidade aqui! 
 
         $scope.remover = function(palestrante) {
-            recurso.delete({id: palestrante._id}, function() {
+            recursoPalestrante.delete({id: palestrante._id}, function() {
                // não executa nenhuma ação, por enquanto.
             }, function(erro) {
                 console.log('não foi possível remover')
@@ -110,7 +110,7 @@ angular
 ```
 
 ## PASSO 4
-Nossa remoção ainda deixa a desejar. Se removermos um palestrante, teremos que recarregar a página para que ele suma da lista. Podemos resolver isso removendo o produto de `$scope` caso o callback de sucesso de `recurso.delete` seja executado com sucesso:
+Nossa remoção ainda deixa a desejar. Se removermos um palestrante, teremos que recarregar a página para que ele suma da lista. Podemos resolver isso removendo o produto de `$scope` caso o callback de sucesso de `recursoPalestrante.delete` seja executado com sucesso:
 
 ```
 // public/js/controllers/lista-controller.js
@@ -120,9 +120,9 @@ angular
 
         $scope.palestrantes = []
 
-        var recurso = $resource('/palestrantes/:id');
+        var recursoPalestrante = $resource('/palestrantes/:id');
 
-        recurso.query(
+        recursoPalestrante.query(
             function(palestrantes) {
                 $scope.palestrantes = palestrantes;
             }, 
@@ -132,7 +132,7 @@ angular
         );  
 
         $scope.remover = function(palestrante) {
-            recurso.delete({id: palestrante._id}, function() {
+            recursoPalestrante.delete({id: palestrante._id}, function() {
 
                 // remove o palestrante na lista se a remoção no servidor for bem sucedida
                 var index = $scope.palestrantes.indexOf(palestrante);

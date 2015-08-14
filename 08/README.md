@@ -111,7 +111,7 @@ Ainda em `cadastro-controller.js`, crie o controller `CadastroController` que re
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
-        var recurso = $resource('/palestrantes');
+        var recursoPalestrante = $resource('/palestrantes');
 
     });
 ```
@@ -125,8 +125,8 @@ Crie em **$scope** a propriedade **palestrante** que será uma instância do ser
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
-        var recurso = $resource('/palestrantes');
-        $scope.palestrante = new recurso();
+        var recursoPalestrante = $resource('/palestrantes');
+        $scope.palestrante = new recursoPalestrante();
 
     });
 ```
@@ -161,8 +161,8 @@ Todas vez que interagirmos com o input, nossa entrada será atualizada em `$scop
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
-        var recurso = $resource('/palestrantes');
-        $scope.palestrante = new recurso();
+        var recursoPalestrante = $resource('/palestrantes');
+        $scope.palestrante = new recursoPalestrante();
 
         $scope.gravar = function() {
 
@@ -179,8 +179,8 @@ Dentro da nossa função `gravar`, vamos invocar a função `$scope.palestrantes
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
-        var recurso = $resource('/palestrantes');
-        $scope.palestrante = new recurso();
+        var recursoPalestrante = $resource('/palestrantes');
+        $scope.palestrante = new recursoPalestrante();
 
         $scope.gravar = function() {
 
@@ -200,15 +200,15 @@ Se tudo correr bem, quando salvarmos nosso palestrante, a função passada como 
 angular.module('minhaApp')
     .controller('CadastroController', function($scope, $resource) {
 
-        var recurso = $resource('/palestrantes');
-        $scope.palestrante = new recurso();
+        var recursoPalestrante = $resource('/palestrantes');
+        $scope.palestrante = new recursoPalestrante();
 
         $scope.gravar = function() {
 
             $scope.palestrante.$save(function() {
                 
                 // limpa o formulário
-                $scope.palestrante = new recurso();
+                $scope.palestrante = new recursoPalestrante();
             });
         }
     });

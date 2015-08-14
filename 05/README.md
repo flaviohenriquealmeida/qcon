@@ -83,10 +83,10 @@ angular
         $scope.palestrantes = []
 
         // cria uma instância para o endpoint
-        var recurso = $resource('/palestrantes');
+        var recursoPalestrante = $resource('/palestrantes');
 
         // chama a função especializada
-        recurso.query(
+        recursoPalestrante.query(
             function(palestrantes) {
                 $scope.palestrantes = palestrantes;
             }, 
