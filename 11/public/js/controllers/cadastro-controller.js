@@ -1,7 +1,6 @@
 angular.module('minhaApp')
-	.controller('CadastroController', function($scope, $resource) {
+	.controller('CadastroController', function($scope, recursoPalestrante) {
 
-		var recursoPalestrante = $resource('/palestrantes');
 		$scope.palestrante = new recursoPalestrante();
 
 		$scope.gravar = function() {

@@ -1,4 +1,4 @@
-angular.module('minhaApp', ['ngResource', 'ngRoute'])
+angular.module('minhaApp', ['ngRoute', 'meusServicos'])
 	.config(function($routeProvider) {
 
 		$routeProvider.when('/', {

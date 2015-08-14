@@ -1,10 +1,8 @@
 angular
     .module('minhaApp')
-    .controller('ListaController', function($scope, $resource) {
+    .controller('ListaController', function($scope, recursoPalestrante) {
 
         $scope.palestrantes = []
-
-        var recursoPalestrante = $resource('/palestrantes/:id');
 
         recursoPalestrante.query(
             function(palestrantes) {
