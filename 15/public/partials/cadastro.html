@@ -1,0 +1,13 @@
+<h2 class="text-center">Cadastro de Palestrantes</h2>
+<p class="alert-info" ng-show="msg">{{msg}}</p>
+<form ng-submit="gravar()">
+	<div class="form-group">
+		<label>Nome</label>
+		<input class="form-control" ng-model="palestrante.nome">
+	</div>
+	<div class="form-group">
+		<label>Palestra</label>
+		<input class="form-control" ng-model="palestrante.palestra">
+	</div>
+	<button class="btn btn-primary">Cadastrar</button>
+</form>
