@@ -5,9 +5,14 @@
 Neste exercícios vamos deixar ainda melhor a organização do nosso código no lado do servidor separando as rotas de suas implementações.
 
 ## PASSO 1
+**Crie** o arquivo `app/routes/palestrantes.js`. Como estamos usando o `express-load`, através de `app` teremos acesso à todas as API's criadas dentro da pasta `app/api`. O arquivo `app/routes/palestrantes.js` no final deve estar assim:
 
 ```
+// app/routes/palestrantes.js
+
 module.exports = function(app) {
+
+    // nossa API app/api/palestrantes
 
     var api = app.api.palestrantes
     
@@ -22,6 +27,9 @@ module.exports = function(app) {
 };
 ```
 
+## PASSO 2
+O diretório `app/routes` ainda não é carregado pelo `express-load`. **Altere** `config/express.js` e carregue o diretório `routes` logo após o carregamento do diretório `api`. O trecho do codigo do `express-load` deve ficar assim:
+
 ```
 load('models', {cwd: 'app'})
     .then('api')
@@ -29,11 +37,20 @@ load('models', {cwd: 'app'})
     .into(app);
 ```
 
+## PASSO 3
+
+**Altere** `app/api/palestrantes.js` para retornar um objeto que contém as funções que usaremos em `app/routes`. 
+
+Seu arquivo `app/api/palestrantes.js` deve estar exatamente como abaixo:
+
 ```
+// app/api/palestrantes.js
+
 module.exports = function(app) {
     
     var Palestrante = app.models.palestrante;
     
+    // objeto que será retornado pelo módulo 
     var api = {};
 
     api.lista = function(req, res) {
@@ -103,7 +120,9 @@ module.exports = function(app) {
 
     return api;
 };
-
-
 ```
+
+## PASSO 4
+
+Reinicie o servidor e teste o resultado. Apenas refatoramos nosso sistema, isto é, não mudamos seu comportamento.
 
