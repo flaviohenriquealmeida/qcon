@@ -24,5 +24,5 @@ angular.module('minhaApp')
 				.catch(function(erro) {
 					console.log(erro.msg);
 				});	
-		}
+		};
 	});
