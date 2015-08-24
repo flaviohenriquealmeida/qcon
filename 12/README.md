@@ -6,7 +6,7 @@ Neste exercícios vamos deixar ainda melhor a organização do nosso código no 
 
 ## PASSO 1
 
-``
+```
 module.exports = function(app) {
 
     var api = app.api.palestrantes
