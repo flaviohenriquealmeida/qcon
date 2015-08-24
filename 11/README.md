@@ -6,7 +6,7 @@ Vamos concluir nosso cadastro, implementando a alteração de palestrantes.
 
 ## PASSO 1
 
-Primeiro, precisamos criar a rota que busca o palestrante que desejamos alterar. Assim como a rota de deleção, ela recebe com parâmetro um curinga e é através desse curinga que temos acesso ao ID do palestrante enviado através de `req.params.id`. Usaremos `findById` disponível no modelo criado pelo Mongoose:
+Primeiro, precisamos criar a rota que busca o palestrante que desejamos alterar. Assim como a rota de deleção, ela recebe com parâmetro um curinga e é através desse curinga que temos acesso ao ID do palestrante enviado através de `req.params.nomeDoCuringaDaRota`. Usaremos `findById` disponível no modelo criado pelo Mongoose:
 
 ```
 // app/api/palestrantes.js
@@ -71,7 +71,7 @@ Em `lista.html`, vamos tornar a coluna do nome do palestrante um link que chamar
 
 ## PASSO 4
 
-Repare que usaremos o mesmo controller para inclusão e alteração. A diferença é que através do serviço `$routeParams` injetado no controller, temos acesso ao ID passado caso estejamos alterando um palestrante. Se o ID não for passado, é inclusão, se for, é alteração.
+Repare que estamos usando o mesmo controller para inclusão e alteração. A diferença é que através do serviço `$routeParams` injetado no controller, temos acesso ao ID do palestrante passado caso estejamos alterando um palestrante. Se o ID não for passado, é inclusão, se for, é alteração. `$routeParams` ganha a propriedade `id` que guarda o ID do nosso palestrante. O nome `id` não é por acaso, é o nome do curinga que definimos na rota do Angular.
 
 O primeiro passo é buscar o palestrante do nosso servidor caso o ID do palestrante tenha sido passado:
 
@@ -101,7 +101,7 @@ angular.module('minhaApp')
 
 ## PASSO 5
 
-Precisamos alterar o servidor mais uma vez para adicioanarmos a rota de alteração através do verbo `PUT`. Usaremos `findByIdAndUpdate` do nosso modelo para buscar e atualizar o palestrante. OBS: a novidade abaixo é apenas a funçã `put`:
+Precisamos alterar o servidor mais uma vez para adicioanarmos a rota de alteração através do verbo `PUT`. Usaremos `findByIdAndUpdate` do nosso modelo para buscar e atualizar o palestrante. OBS: a novidade abaixo é apenas a função `put`:
 
 ```
 // app/api/palestrantes.js
@@ -166,6 +166,9 @@ Por fim, precisamos alterar `CadastroController` para que saiba alterar nosso pa
 $scope.gravar = function() {
 
     if(idPalestrante) {
+        
+        // a função update recebe 3 parâmetros: o ID do palestrante, o palestrante e a função de callback que será chamada após a atualização no servidor
+
         recursoPalestrante.update({id: idPalestrante}, $scope.palestrante, function(palestrante) {
             $location.path('/');
         });
