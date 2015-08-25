@@ -35,8 +35,8 @@ A configuração `{cwd: 'app'}` indica a raíz na qual o `express-load` procurar
 
 ## PASSO 2
 
-Agora que você configurou o expres-load, já pode subir o servidor com `npm start` e acessar a URL `http://localhost:3000/participantes` que 
-retornará um JSON com uma lista de participantes.
+Agora que você configurou o expres-load, já pode subir o servidor com `npm start` e acessar a URL `http://localhost:3000/palestrantes` que 
+retornará um JSON com uma lista de palestrantes.
 
 ## PASSO 3
 
