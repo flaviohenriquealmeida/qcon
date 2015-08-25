@@ -181,4 +181,22 @@ $scope.gravar = function() {
 ```
 
 ## PASSO 7
+O problema é que a função `recursoPalestrante.update` não existe. O $resource não suporta o verbo PUT. Mas nem tudo esta perdido! Podemos criar a função update em nosso serviço:
+
+**Altere** `public/js/servicos/palestrante-service.js`:
+
+```
+angular.module('meusServicos', ['ngResource'])
+    .factory('recursoPalestrante', function($resource) {
+
+        return $resource('palestrantes/:id', null, 
+        {
+            'update' : { 
+                method: 'PUT'
+            }
+        });
+    });
+```
+
+## PASSO 8
 Tenha certeza de ter reiniciado o servidor e teste o resultado. Altere e inclua alguns palestrantes.
