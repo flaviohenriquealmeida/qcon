@@ -1,6 +1,5 @@
 var express = require('express');
-var app = express()
-	,load = require('express-load');
+var app = express();
 
 // configurações de middlewares
 app.use(express.static('public'));
